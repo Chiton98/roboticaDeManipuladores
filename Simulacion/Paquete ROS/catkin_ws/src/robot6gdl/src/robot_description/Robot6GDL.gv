@@ -1,0 +1,29 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"link_eslabon1" [label="link_eslabon1"];
+"link_eslabon2" [label="link_eslabon2"];
+"link_eslabonunion23" [label="link_eslabonunion23"];
+"link_eslabon3" [label="link_eslabon3"];
+"link_eslabon4" [label="link_eslabon4"];
+"link_eslabon5" [label="link_eslabon5"];
+"link_eslabon6" [label="link_eslabon6"];
+"link_herramienta" [label="link_herramienta"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "joint_base_eslabon1" [label="xyz: 0 0 0.01 \nrpy: 0 -0 0"]
+"joint_base_eslabon1" -> "link_eslabon1"
+"link_eslabon1" -> "joint_eslabon1_eslabon2" [label="xyz: 0 0 0.043 \nrpy: 1.5708 -0 0"]
+"joint_eslabon1_eslabon2" -> "link_eslabon2"
+"link_eslabon2" -> "joint_eslabon2_eslabonunion23" [label="xyz: 0.15 0 0 \nrpy: 1.5708 -0 0"]
+"joint_eslabon2_eslabonunion23" -> "link_eslabonunion23"
+"link_eslabonunion23" -> "joint_eslabonunion23_eslabon3" [label="xyz: 0.07 0 0 \nrpy: 0 -0 0"]
+"joint_eslabonunion23_eslabon3" -> "link_eslabon3"
+"link_eslabon3" -> "joint_eslabon3_eslabon4" [label="xyz: 0.165 0 0 \nrpy: 0 -1.5708 3.1416"]
+"joint_eslabon3_eslabon4" -> "link_eslabon4"
+"link_eslabon4" -> "joint_eslabon4_eslabon5" [label="xyz: 0 0 0.04 \nrpy: 1.5708 -0 0"]
+"joint_eslabon4_eslabon5" -> "link_eslabon5"
+"link_eslabon5" -> "joint_eslabon5_eslabon6" [label="xyz: 0.065 0 0 \nrpy: 0 -1.5708 3.1416"]
+"joint_eslabon5_eslabon6" -> "link_eslabon6"
+"link_eslabon6" -> "joint_eslabon6_herramienta" [label="xyz: 0.033 0 0 \nrpy: 0 -1.5708 3.1416"]
+"joint_eslabon6_herramienta" -> "link_herramienta"
+}

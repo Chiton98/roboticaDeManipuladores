@@ -1,0 +1,44 @@
+#Configuración para el robot
+fixed : 1 #Si es 1 se mueve el robot. Si es 0 se queda fijo.
+opcion : 1 #Si es 0 se genera la trayectoria circular.
+           #Si es 1 se genera la trayectoria cicloidal
+           #Si es 2 se genera la trayectoria helocoidal
+
+#<------------------Valores para la trayectoria lineal--------->
+
+#Valores iniciales
+#pi : [200.0,0,80.0]
+#euleri : [0.0,rad(-pi/2),rad(-pi)]
+
+#Posicion final
+#pf : [300.0,0.0,80.0]
+#eulerf : [0.0,0.0,rad(pi)]
+
+
+
+#<--------------Valores para la trayectoria circular----------->
+#piC : [300,0,200] # Posición inicial del punto del circulo
+#c : [200,0,200] #Ubicación del centro del circulo
+#R : [1,0,0,0,1,0,0,0,1] #Matriz de rotación plano XY
+#R : [1,0,0,0,0,-1,0,1,0] #Matriz de rotación plano XZ
+#R : [0,0,1,1,0,0,0,1,0] #Matriz de rotación plano YZ
+
+
+#<--------------Valores para la trayectoria cicloidal----------->
+piC : [150,0,200] # Posición inicial de la cicloide
+r : 30 #Radio del circulo que girará para realizar una cicloide
+R : [1,0,0,0,0,-1,0,1,0] #Matriz de rotación plano XZ
+#R : [1,0,0,0,1,0,0,0,1] #Matriz de rotación plano XY
+#R : [0,0,1,-1,0,0,0,1,0] #Matriz de rotación plano ZY
+
+
+#<--------------Valores para la trayectoria helicoidal----------->
+#piC : [100,0,200] # Posición inicial de la cicloide
+#r : 50 #Radio del circulo que girará para realizar una cicloide
+#R : [1,0,0,0,0,-1,0,1,0] #Matriz de rotación plano XZ
+#a: 10 #RAZON DE CAMBIO DE LA COORDENADA EN Z
+#R : [1,0,0,0,1,0,0,0,1] #Matriz de rotación plano XY
+#R : [0,0,1,-1,0,0,0,1,0] #Matriz de rotación plano ZY
+
+
+

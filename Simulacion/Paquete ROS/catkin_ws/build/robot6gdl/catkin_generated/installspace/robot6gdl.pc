@@ -1,0 +1,8 @@
+prefix=/home/chiton/Tesis/catkin_ws/install
+
+Name: robot6gdl
+Description: Description of robot6gdl
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

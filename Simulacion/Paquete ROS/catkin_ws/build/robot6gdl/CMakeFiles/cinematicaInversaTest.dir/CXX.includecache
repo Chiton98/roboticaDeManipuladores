@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chiton/Tesis/catkin_ws/src/robot6gdl/src/claseRobots.cpp
+claseRobots.h
+/home/chiton/Tesis/catkin_ws/src/robot6gdl/src/claseRobots.h
+cmath
+-
+eigen3/Eigen/Dense
+-
+
+/home/chiton/Tesis/catkin_ws/src/robot6gdl/src/claseRobots.h
+eigen3/Eigen/Dense
+-
+

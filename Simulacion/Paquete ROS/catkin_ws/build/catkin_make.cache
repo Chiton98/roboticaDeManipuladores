@@ -1,0 +1,2 @@
+robot6gdl
+-DCATKIN_DEVEL_PREFIX=/home/chiton/Tesis/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/chiton/Tesis/catkin_ws/install -G Unix Makefiles

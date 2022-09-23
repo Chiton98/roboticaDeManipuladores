@@ -1,0 +1,220 @@
+<?xml version='1.0'?>
+
+<robot name="Robot6GDL">
+    <!--Eslabones-->
+        <!--Base del robot-->
+         <link name="base_link">
+    
+          <visual>
+           <geometry>
+            <mesh filename = "package://robot6gdl/src/robot_description/meshes/Base.stl"/>
+           </geometry>
+          </visual>
+          
+          <collision>
+           <geometry>
+            <mesh filename = "package://robot6gdl/src/robot_description/meshes/Base.stl"/>
+           </geometry>
+          </collision>
+          
+         </link>
+
+        <!--Eslabón 1-->
+         <link name="link_eslabon1">
+          
+          <inertial>
+           <mass value = "0.12303021"/>
+           <inertia ixx ="0.00017790" iyy = "0.00013355" izz = "0.00028229" ixy = "0.0" ixz = "0.0" iyz = "0.0"/>
+          </inertial>
+      
+          <visual>
+           <geometry>
+            <mesh filename = "package://robot6gdl/src/robot_description/meshes/Eslabon1.stl"/>
+           </geometry>
+          </visual>
+
+         </link>
+
+        <!--Eslabon 2-->
+         <link name="link_eslabon2">
+          <inertial>
+           <mass value = "0.09777345"/>
+           <inertia ixx = "0.00002161" iyy = "0.00029507" izz = "0.00027900" ixy = "0.0" ixz = "0.0" iyz = "0.0"/>
+          </inertial>
+
+           <visual>
+            <geometry>
+             <mesh filename = "package://robot6gdl/src/robot_description/meshes/Eslabon2.dae"/>
+            </geometry>
+           </visual>
+        
+         </link>
+
+        <!--Union de eslabon 2 y eslabon 3-->
+         <link name = "link_eslabonunion23">   
+
+          <inertial>
+           <mass value = "0.07005726"/>
+           <inertia ixx = "0.00011043" iyy = "0.00013794" izz = "0.00003796" ixy = "0.0" ixz= "0.0" iyz="0.0"/> <!-- inertias are tricky to compute -->
+          </inertial>
+
+          <visual>
+           <origin xyz = "0.035 0 0"/>
+           <geometry>
+           <mesh filename = "package://robot6gdl/src/robot_description/meshes/Union23.stl"/>
+           </geometry>
+          </visual>
+
+         </link>
+   
+        <!--Eslabon 3-->
+         <link name = "link_eslabon3">   
+
+         <inertial>
+          <mass value = "0.08754757"/>
+          <inertia ixx = "0.00001331" iyy ="0.00022169" izz ="0.00021365" ixy= "0.0" ixz ="0.0" iyz="0.0"/> 
+         </inertial>
+
+         <visual>
+          <geometry>  
+           <mesh filename = "package://robot6gdl/src/robot_description/meshes/Eslabon3.dae"/>
+          </geometry>
+         </visual>
+
+         </link>
+
+       
+        <!--Eslabon 4 Muñeca-->
+         <link name = "link_eslabon4">   
+
+         <inertial>
+          <mass value = "0.08754757"/>
+          <inertia ixx = "0.00001331" iyy ="0.00022169" izz ="0.00021365" ixy= "0.0" ixz ="0.0" iyz="0.0"/> 
+         </inertial>
+
+         <visual>
+          <geometry>  
+           <mesh filename = "package://robot6gdl/src/robot_description/meshes/Wrist4.dae"/>
+          </geometry>
+         </visual>
+
+          </link>
+
+        <!--Eslabon 5 Muñeca-->
+         <link name = "link_eslabon5">   
+
+         <inertial>
+          <mass value = "0.08754757"/>
+          <inertia ixx = "0.00001331" iyy ="0.00022169" izz ="0.00021365" ixy= "0.0" ixz ="0.0" iyz="0.0"/> 
+         </inertial>
+
+         <visual>
+          <geometry>  
+           <mesh filename = "package://robot6gdl/src/robot_description/meshes/Wrist5.dae"/>
+          </geometry>
+         </visual>
+
+         </link>
+
+        <!--Eslabon 6 Muñeca-->
+         <link name = "link_eslabon6">
+
+         <inertial>
+          <mass value = "0.08754757"/>
+          <inertia ixx = "0.00001331" iyy ="0.00022169" izz ="0.00021365" ixy= "0.0" ixz ="0.0" iyz="0.0"/> 
+         </inertial>
+
+         <visual>
+          <geometry>  
+           <mesh filename = "package://robot6gdl/src/robot_description/meshes/Wrist6.dae"/>
+          </geometry>
+         </visual>
+
+         </link>  
+
+        <!--Eslabon Herramienta-->
+         <link name = "link_herramienta">
+
+         <inertial>
+          <mass value = "0.08754757"/>
+          <inertia ixx = "0.00001331" iyy ="0.00022169" izz ="0.00021365" ixy= "0.0" ixz ="0.0" iyz="0.0"/> 
+         </inertial>
+
+         <visual>
+          <geometry>  
+           <mesh filename = "package://robot6gdl/src/robot_description/meshes/Herramienta.dae"/>
+          </geometry>
+         </visual>
+
+         </link>    
+       
+  
+  <!--Uniones del robot-->
+
+    <!--Union 1-->
+     <joint name = "J1" type = "continuous">
+      <parent link = "base_link"/>
+      <child link = "link_eslabon1"/>
+      <origin xyz = "0 0 0.01" rpy = "0 0 0"/>
+      <axis xyz ="0 0 1" />
+     </joint>
+
+    <!--Union 2-->
+    <joint name = "J2" type = "continuous">
+      <parent link = "link_eslabon1"/>
+      <child link = "link_eslabon2"/>  
+      <origin xyz ="0 0 0.043" rpy = "1.5708 0 0"/>
+      <axis xyz = "0 0 1"/>
+    </joint>
+
+     <!--Union eslabon23 con el eslabon 3-->
+    <joint name = "joint_eslabonunion23_eslabon3" type = 'fixed'>
+      <parent link = "link_eslabon2"/>
+      <child link = "link_eslabonunion23"/>
+      <origin xyz = "0.150 0 0" rpy ="0 0 0"/>
+      <axis xyz = "0 0 1"/>
+    </joint>
+
+
+ 
+    <!--Union 3-->
+    <joint name = "J3" type = "continuous">
+      <parent link = "link_eslabonunion23"/>
+      <child link = "link_eslabon3"/>
+      <origin xyz = "0.07 0 0" rpy = "0 0 0"/>
+      <axis xyz = "0 0 1"/>
+    </joint>
+  
+    <!--Union eslabon3 con el eslabon 4 muñeca-->
+    <joint name = "J4" type = "continuous">
+      <parent link = "link_eslabon3"/>
+      <child link = "link_eslabon4"/>
+      <origin xyz = "0.165 0 0 " rpy = "0 1.5708 0"/>
+      <axis xyz = "0 0 1"/>
+    </joint>
+
+    <!--Union eslabon4 con el eslabon 5 muñeca-->
+    <joint name = "J5" type = "continuous">
+      <parent link = "link_eslabon4"/>
+      <child link = "link_eslabon5"/>
+      <origin xyz = "0 0 0.04 " rpy = "0 -1.5708 0"/>
+      <axis xyz = "0 0 1"/>
+    </joint>
+
+    <!--Union eslabon5 con el eslabon 6 muñeca-->
+    <joint name = "J6" type = "continuous">
+      <parent link = "link_eslabon5"/>
+      <child link = "link_eslabon6"/>
+      <origin xyz = "0.065 0 0" rpy = "1.5708 0 1.5708 "/>
+      <axis xyz = "0 0 1"/>
+    </joint>
+
+    <!--Union eslabon 6 con la herramienta-->
+    <joint name = "joint_eslabon6_herramienta" type = "fixed">
+      <parent link = "link_eslabon6"/>
+      <child link = "link_herramienta"/>
+      <origin xyz = "0 0 0.033" rpy = "0 0 0"/>
+      <axis xyz = "0 0 1"/>
+    </joint>
+
+</robot>
